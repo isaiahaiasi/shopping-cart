@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../CartContext";
 import storeData from "../store-data";
+import { formatCurrency } from "../utilities";
 
 export default function Cart() {
   const { cartState } = useContext(CartContext);
@@ -18,6 +19,12 @@ export default function Cart() {
       </div>
     );
   }
+
+  const total = Object.entries(cartState).reduce(
+    (acc, [id, quantity]) => acc + storeData[id].price * quantity,
+    0
+  );
+
   return (
     <div>
       <h1>Cart</h1>
@@ -25,11 +32,14 @@ export default function Cart() {
         {Object.entries(cartState).map(([id, quantity]) => {
           return (
             <li key={id}>
-              <b>{storeData[id].title}</b> - {quantity}
+              <b>{storeData[id].title}</b> - {quantity} -{" "}
+              {formatCurrency(storeData[id].price * quantity)}
             </li>
           );
         })}
       </ul>
+      <div>Total: {formatCurrency(total)}</div>
+      <button>Proceed to checkout</button>
     </div>
   );
 }
