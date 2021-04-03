@@ -35,7 +35,7 @@ const cartReducer = (state, { type, id, quantity }) => {
 };
 
 function App() {
-  const [cartState, cartDispatch] = useReducer(cartReducer, []);
+  const [cartState, cartDispatch] = useReducer(cartReducer, {});
 
   return (
     <div className="App">

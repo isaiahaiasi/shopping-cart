@@ -4,7 +4,7 @@ import CartContext from "../CartContext";
 import storeData from "../store-data";
 
 export default function Cart() {
-  const { cartState, cartDispatch } = useContext(CartContext);
+  const { cartState } = useContext(CartContext);
 
   if (Object.entries(cartState).length === 0) {
     return (
@@ -22,11 +22,13 @@ export default function Cart() {
     <div>
       <h1>Cart</h1>
       <ul>
-        {Object.entries(cartState).map(([id, quantity]) => (
-          <li key={id}>
-            <b>{id}</b> - {quantity}
-          </li>
-        ))}
+        {Object.entries(cartState).map(([id, quantity]) => {
+          return (
+            <li key={id}>
+              <b>{storeData[id].title}</b> - {quantity}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

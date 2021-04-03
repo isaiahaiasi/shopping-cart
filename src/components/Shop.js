@@ -7,8 +7,8 @@ export default function Shop() {
     <div>
       <h1>Shop</h1>
       <ul>
-        {storeData.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {Object.entries(storeData).map(([id, product]) => (
+          <ProductCard key={id} id={id} product={product} />
         ))}
       </ul>
     </div>

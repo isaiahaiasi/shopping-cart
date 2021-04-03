@@ -6,8 +6,8 @@ import AddToCart from "./AddToCart";
 
 export default function Product() {
   const { productId } = useParams();
-  // TODO: clearly an array is not the right data structure here, lol
-  const product = storeData.find((prod) => prod.id === productId);
+
+  const product = storeData[productId];
 
   // TODO: this should be a redirect
   if (!product) {
@@ -26,7 +26,7 @@ export default function Product() {
 
       <div>
         <h2>{product.title}</h2>
-        <p>{product.id}</p>
+        <p>{productId}</p>
         <p>{formatCurrency(product.price)}</p>
         {product.weight && <p>{product.weight} lb</p>}
         <ul>
@@ -34,7 +34,7 @@ export default function Product() {
             <li key={cat}>{cat}</li>
           ))}
         </ul>
-        <AddToCart id={product.id} />
+        <AddToCart id={productId} />
       </div>
     </div>
   );

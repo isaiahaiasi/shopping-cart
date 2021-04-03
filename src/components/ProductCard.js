@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { formatCurrency } from "../utilities";
 import AddToCart from "./AddToCart";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ id, product }) {
   return (
     <div>
       <h3>{product.title}</h3>
@@ -13,8 +13,8 @@ export default function ProductCard({ product }) {
           <li key={cat}>{cat}</li>
         ))}
       </ul>
-      <Link to={`/shop/${product.id}`}>Learn more</Link>
-      <AddToCart id={product.id} />
+      <Link to={`/shop/${id}`}>Learn more</Link>
+      <AddToCart id={id} />
     </div>
   );
 }
