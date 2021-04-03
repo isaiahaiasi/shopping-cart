@@ -1,5 +1,3 @@
-import { nanoid } from "nanoid";
-
 const data = {
   "9owJZnxf5J": {
     title: "Ball Bearings (Bag of 1,000)",

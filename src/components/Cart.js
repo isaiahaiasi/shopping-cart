@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CartContext from "../CartContext";
 import storeData from "../store-data";
 import { formatCurrency } from "../utilities";
+import AddToCartInput from "./AddToCartInput";
 
 export default function Cart() {
   const { cartState } = useContext(CartContext);
@@ -34,6 +35,7 @@ export default function Cart() {
             <li key={id}>
               <b>{storeData[id].title}</b> - {quantity} -{" "}
               {formatCurrency(storeData[id].price * quantity)}
+              <AddToCartInput id={id} />
             </li>
           );
         })}

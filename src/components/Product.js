@@ -2,14 +2,14 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { formatCurrency } from "../utilities";
 import storeData from "../store-data";
-import AddToCart from "./AddToCart";
+import AddToCartInput from "./AddToCartInput";
 
 export default function Product() {
   const { productId } = useParams();
 
   const product = storeData[productId];
 
-  // TODO: this should be a redirect
+  // TODO: this should probably be a redirect
   if (!product) {
     return (
       <div>
@@ -34,7 +34,7 @@ export default function Product() {
             <li key={cat}>{cat}</li>
           ))}
         </ul>
-        <AddToCart id={productId} />
+        <AddToCartInput id={productId} />
       </div>
     </div>
   );

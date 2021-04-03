@@ -1,11 +1,3 @@
-// TODO:
-// - shopping cart context. State needs iterable of [item id, quantity].
-// (I don't *think* I need any other info in state, since if I have item id,
-//  I can just query for its price, etc)
-// - main nav switch: home, cart, route
-// - routes, including item param route?
-// - (I think that's it, for the main app component)
-
 import React, { useReducer } from "react";
 import {
   BrowserRouter as Router,
@@ -26,7 +18,14 @@ const cartReducer = (state, { type, id, quantity }) => {
     case cartActions.increment:
       return { ...state, [id]: state[id] + 1 };
     case cartActions.decrement:
-      return { ...state, [id]: state[id] > 0 ? state[id] - 1 : state[id] };
+      if (state[id] > 1) {
+        return { ...state, [id]: state[id] - 1 };
+      } else {
+        // TODO: add confirmation modal before filtering out
+        const newState = { ...state };
+        delete newState[id];
+        return newState;
+      }
     case cartActions.set:
       return { ...state, [id]: quantity };
     default:
