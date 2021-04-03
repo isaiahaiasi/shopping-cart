@@ -5,12 +5,8 @@ import storeData from "../store-data";
 
 export default function Product() {
   const { productId } = useParams();
-  console.log(productId);
   // TODO: clearly an array is not the right data structure here, lol
-  const product = storeData.find((prod) => {
-    console.log(prod.id);
-    return prod.id === productId;
-  });
+  const product = storeData.find((prod) => prod.id === productId);
 
   // TODO: this should be a redirect
   if (!product) {
