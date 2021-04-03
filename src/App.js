@@ -16,12 +16,16 @@ import {
 import Home from "./components/Home";
 import Shop from "./components/Shop";
 import Cart from "./components/Cart";
-
-const CartContext = React.createContext({
-  /* itemId: quantity, */
-});
+import CartContext from "./CartContext";
 
 function App() {
+  const initialCartValue = {
+    //! TEMP; Final will init with empty object.
+    fancyBoots: 2,
+    fancyCoat: 1,
+    luckySocks: 4,
+  };
+
   return (
     <div className="App">
       <Router>
@@ -37,7 +41,7 @@ function App() {
           </li>
         </ul>
 
-        <CartContext.Provider>
+        <CartContext.Provider value={initialCartValue}>
           <Switch>
             <Route path="/" exact>
               <Home />
