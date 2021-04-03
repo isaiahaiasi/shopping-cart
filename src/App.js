@@ -17,15 +17,9 @@ import Home from "./components/Home";
 import Shop from "./components/Shop";
 import Cart from "./components/Cart";
 import CartContext from "./CartContext";
+import Product from "./components/Product";
 
 function App() {
-  const initialCartValue = {
-    //! TEMP; Final will init with empty object.
-    fancyBoots: 2,
-    fancyCoat: 1,
-    luckySocks: 4,
-  };
-
   return (
     <div className="App">
       <Router>
@@ -41,13 +35,16 @@ function App() {
           </li>
         </ul>
 
-        <CartContext.Provider value={initialCartValue}>
+        <CartContext.Provider value={{}}>
           <Switch>
             <Route path="/" exact>
               <Home />
             </Route>
-            <Route path="/shop">
+            <Route path="/shop" exact>
               <Shop />
+            </Route>
+            <Route path="/shop/:productId">
+              <Product />
             </Route>
             <Route path="/cart">
               <Cart />
