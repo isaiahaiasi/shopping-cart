@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { formatCurrency } from "../utilities";
 import storeData from "../store-data";
+import AddToCart from "./AddToCart";
 
 export default function Product() {
   const { productId } = useParams();
@@ -30,9 +31,10 @@ export default function Product() {
         {product.weight && <p>{product.weight} lb</p>}
         <ul>
           {product.category.map((cat) => (
-            <li>{cat}</li>
+            <li key={cat}>{cat}</li>
           ))}
         </ul>
+        <AddToCart id={product.id} />
       </div>
     </div>
   );
