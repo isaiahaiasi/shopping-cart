@@ -6,7 +6,11 @@ export default function AddToCartInput({ id }) {
   const quantity = cartState[id] ?? 0;
 
   const handleInputChange = (e) => {
-    cartDispatch({ type: cartActions.set, id: id, quantity: e.target.value });
+    cartDispatch({
+      type: cartActions.set,
+      id: id,
+      quantity: Math.floor(e.target.value),
+    });
   };
 
   const handleDecrement = () => {
