@@ -1,13 +1,20 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import CartContext from "../CartContext";
-import { RiShoppingCart2Line } from "react-icons/ri";
+import { RiShoppingCart2Fill, RiShoppingCart2Line } from "react-icons/ri";
 
 export default function CartLink({ to, activeStyle }) {
+  const loc = useLocation();
   const { cartState } = useContext(CartContext);
+
   return (
     <NavLink to={to} activeStyle={activeStyle}>
-      <RiShoppingCart2Line />({Object.entries(cartState).length})
+      {loc.pathname === "/cart" ? (
+        <RiShoppingCart2Fill />
+      ) : (
+        <RiShoppingCart2Line />
+      )}
+      ({Object.entries(cartState).length})
     </NavLink>
   );
 }

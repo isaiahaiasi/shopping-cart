@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Nav = styled.nav`
-  /* position: sticky; */
+  /* position: sticky;  how does this work again??*/
   box-sizing: border-box;
   background: black;
   color: white;
@@ -21,6 +21,7 @@ const Nav = styled.nav`
   a {
     color: white;
     text-decoration: none;
+    text-align: center;
   }
 `;
 

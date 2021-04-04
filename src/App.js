@@ -5,18 +5,32 @@ import {
   NavLink,
   Switch,
 } from "react-router-dom";
+
+// custom react elements (not components)
+import CartContext, { cartActions } from "./CartContext";
+
+// custom components
 import Home from "./components/Home";
 import Shop from "./components/Shop";
 import Cart from "./components/Cart";
-import CartContext, { cartActions } from "./CartContext";
 import Product from "./components/Product";
 import CartLink from "./components/CartLink";
+
+// styled components
 import Nav from "./styled-components/Nav";
 import Main from "./styled-components/Main";
 
 const cartReducer = (state, { type, id, quantity }) => {
   if (!state[id]) state[id] = 0;
-  switch (type) {
+
+  // Depending on state, I might want to change action type
+  // ie, if decrementing, delete if qty <= 1
+  let handledType = type;
+  if (type === cartActions.decrement && state[id] <= 1) {
+    handledType = cartActions.remove;
+  }
+
+  switch (handledType) {
     case cartActions.increment:
       return { ...state, [id]: state[id] + 1 };
     case cartActions.decrement:
@@ -29,18 +43,27 @@ const cartReducer = (state, { type, id, quantity }) => {
         return newState;
       }
     case cartActions.set:
+      // TODO: this means 0 doesn't delete item from cart
+      // but immediately deleting when typing a number is also bad
+      // I might include a different action.type onBlur to delete if 0?
       return { ...state, [id]: quantity };
+    case cartActions.remove:
+      const newState = { ...state };
+      delete newState[id];
+      return newState;
     default:
       throw new Error(`Unhandled cart action type ${type}`);
   }
 };
+
+// TODO: add cart contents to localstorage!
 
 function App() {
   const [cartState, cartDispatch] = useReducer(cartReducer, {});
 
   // TODO: figure out a place to put this... idk how to make NavLink active
   // work with styled-components yet
-  const navStyle = {
+  const activeNavStyle = {
     textDecoration: "underline",
     fontWeight: "bold",
   };
@@ -52,17 +75,17 @@ function App() {
           <Nav>
             <ul className="nav">
               <li>
-                <NavLink to="/" activeStyle={navStyle} exact>
+                <NavLink to="/" activeStyle={activeNavStyle} exact>
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/shop" activeStyle={navStyle}>
+                <NavLink to="/shop" activeStyle={activeNavStyle}>
                   Shop
                 </NavLink>
               </li>
               <li>
-                <CartLink to="/cart" activeStyle={navStyle}>
+                <CartLink to="/cart" activeStyle={activeNavStyle}>
                   Cart
                 </CartLink>
               </li>
