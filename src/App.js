@@ -11,6 +11,8 @@ import Cart from "./components/Cart";
 import CartContext, { cartActions } from "./CartContext";
 import Product from "./components/Product";
 import CartLink from "./components/CartLink";
+import Nav from "./styled-components/Nav";
+import Main from "./styled-components/Main";
 
 const cartReducer = (state, { type, id, quantity }) => {
   if (!state[id]) state[id] = 0;
@@ -36,36 +38,52 @@ const cartReducer = (state, { type, id, quantity }) => {
 function App() {
   const [cartState, cartDispatch] = useReducer(cartReducer, {});
 
+  // TODO: figure out a place to put this... idk how to make NavLink active
+  // work with styled-components yet
+  const navStyle = {
+    textDecoration: "underline",
+    fontWeight: "bold",
+  };
+
   return (
     <div className="App">
       <Router>
         <CartContext.Provider value={{ cartState, cartDispatch }}>
-          <ul className="nav">
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/shop">Shop</NavLink>
-            </li>
-            <li>
-              <CartLink to="/cart">Cart</CartLink>
-            </li>
-          </ul>
-
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/shop" exact>
-              <Shop />
-            </Route>
-            <Route path="/shop/:productId">
-              <Product />
-            </Route>
-            <Route path="/cart">
-              <Cart />
-            </Route>
-          </Switch>
+          <Nav>
+            <ul className="nav">
+              <li>
+                <NavLink to="/" activeStyle={navStyle} exact>
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/shop" activeStyle={navStyle}>
+                  Shop
+                </NavLink>
+              </li>
+              <li>
+                <CartLink to="/cart" activeStyle={navStyle}>
+                  Cart
+                </CartLink>
+              </li>
+            </ul>
+          </Nav>
+          <Main>
+            <Switch>
+              <Route path="/" exact>
+                <Home />
+              </Route>
+              <Route path="/shop" exact>
+                <Shop />
+              </Route>
+              <Route path="/shop/:productId">
+                <Product />
+              </Route>
+              <Route path="/cart">
+                <Cart />
+              </Route>
+            </Switch>
+          </Main>
         </CartContext.Provider>
       </Router>
     </div>
