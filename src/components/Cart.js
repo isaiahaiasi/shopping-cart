@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../CartContext";
 import storeData from "../store-data";
+import Button from "../styled-components/Button";
 import { formatCurrency } from "../utilities";
 import AddToCartInput from "./AddToCartInput";
 
@@ -41,7 +42,7 @@ export default function Cart() {
         })}
       </ul>
       <div>Total: {formatCurrency(total)}</div>
-      <button>Proceed to checkout</button>
+      <Button>Proceed to checkout</Button>
     </div>
   );
 }
