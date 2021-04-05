@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import CartContext, { cartActions } from "../CartContext";
 import { FaTrash } from "react-icons/fa";
+import RoundBtn from "../styled-components/RoundBtn";
+import CartInputGroup from "../styled-components/CartInputGroup";
+import TextInput from "../styled-components/TextInput";
 
 export default function AddToCartInput({ id }) {
   const { cartState, cartDispatch } = useContext(CartContext);
@@ -29,13 +32,17 @@ export default function AddToCartInput({ id }) {
   };
 
   return (
-    <div className="cart-input">
-      <button onClick={handleRemove}>
+    <CartInputGroup>
+      <RoundBtn onClick={handleRemove}>
         <FaTrash />
-      </button>
-      <button onClick={handleDecrement}>-</button>
-      <input type="number" value={quantity} onChange={handleInputChange} />
-      <button onClick={handleIncrement}>+</button>
-    </div>
+      </RoundBtn>
+      <RoundBtn onClick={handleDecrement}>
+        <span> - </span>
+      </RoundBtn>
+      <TextInput type="number" value={quantity} onChange={handleInputChange} />
+      <RoundBtn onClick={handleIncrement}>
+        <span> + </span>
+      </RoundBtn>
+    </CartInputGroup>
   );
 }
