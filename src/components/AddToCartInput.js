@@ -12,23 +12,23 @@ export default function AddToCartInput({ id }) {
   const handleInputChange = (e) => {
     cartDispatch({
       type: cartActions.set,
-      id: id,
-      quantity: Math.floor(e.target.value),
+      id,
+      quantity: Math.floor(Math.abs(e.target.value)),
     });
   };
 
   const handleDecrement = () => {
     if (quantity <= 0) return;
 
-    cartDispatch({ type: cartActions.decrement, id: id });
+    cartDispatch({ type: cartActions.decrement, id });
   };
 
   const handleIncrement = () => {
-    cartDispatch({ type: cartActions.increment, id: id });
+    cartDispatch({ type: cartActions.increment, id });
   };
 
   const handleRemove = () => {
-    cartDispatch({ type: cartActions.remove, id: id });
+    cartDispatch({ type: cartActions.remove, id });
   };
 
   return (
