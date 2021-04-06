@@ -68,6 +68,10 @@ function App() {
     fontWeight: "bold",
   };
 
+  //! apparently gh-pages is NOT compatible with SPAs
+  //! so I need another solution to routing
+  const BASE_URL = "/shopping-cart";
+
   return (
     <div className="App">
       <Router>
@@ -75,17 +79,17 @@ function App() {
           <Nav>
             <ul className="nav">
               <li>
-                <NavLink to="/" activeStyle={activeNavStyle} exact>
+                <NavLink to={BASE_URL + "/"} activeStyle={activeNavStyle} exact>
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/shop" activeStyle={activeNavStyle}>
+                <NavLink to={BASE_URL + "/shop"} activeStyle={activeNavStyle}>
                   Shop
                 </NavLink>
               </li>
               <li>
-                <CartLink to="/cart" activeStyle={activeNavStyle}>
+                <CartLink to={BASE_URL + "/cart"} activeStyle={activeNavStyle}>
                   Cart
                 </CartLink>
               </li>
@@ -93,16 +97,16 @@ function App() {
           </Nav>
           <Main>
             <Switch>
-              <Route path="/" exact>
+              <Route path={BASE_URL + "/"} exact>
                 <Home />
               </Route>
-              <Route path="/shop" exact>
+              <Route path={BASE_URL + "/shop"} exact>
                 <Shop />
               </Route>
-              <Route path="/shop/:productId">
+              <Route path={BASE_URL + "/shop/:productId"}>
                 <Product />
               </Route>
-              <Route path="/cart">
+              <Route path={BASE_URL + "/cart"}>
                 <Cart />
               </Route>
             </Switch>
