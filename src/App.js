@@ -1,10 +1,5 @@
 import React, { useReducer } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink,
-  Switch,
-} from "react-router-dom";
+import { HashRouter as Router, Route, NavLink, Switch } from "react-router-dom";
 
 // custom react elements (not components)
 import CartContext, { cartActions } from "./CartContext";
@@ -68,10 +63,6 @@ function App() {
     fontWeight: "bold",
   };
 
-  //! apparently gh-pages is NOT compatible with SPAs
-  //! so I need another solution to routing
-  const BASE_URL = "/shopping-cart";
-
   return (
     <div className="App">
       <Router>
@@ -79,17 +70,17 @@ function App() {
           <Nav>
             <ul className="nav">
               <li>
-                <NavLink to={BASE_URL + "/"} activeStyle={activeNavStyle} exact>
+                <NavLink to="/" activeStyle={activeNavStyle} exact>
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to={BASE_URL + "/shop"} activeStyle={activeNavStyle}>
+                <NavLink to="/shop" activeStyle={activeNavStyle}>
                   Shop
                 </NavLink>
               </li>
               <li>
-                <CartLink to={BASE_URL + "/cart"} activeStyle={activeNavStyle}>
+                <CartLink to="/cart" activeStyle={activeNavStyle}>
                   Cart
                 </CartLink>
               </li>
@@ -97,16 +88,16 @@ function App() {
           </Nav>
           <Main>
             <Switch>
-              <Route path={BASE_URL + "/"} exact>
+              <Route path="/" exact>
                 <Home />
               </Route>
-              <Route path={BASE_URL + "/shop"} exact>
+              <Route path="/shop" exact>
                 <Shop />
               </Route>
-              <Route path={BASE_URL + "/shop/:productId"}>
+              <Route path="/shop/:productId">
                 <Product />
               </Route>
-              <Route path={BASE_URL + "/cart"}>
+              <Route path="/cart">
                 <Cart />
               </Route>
             </Switch>
