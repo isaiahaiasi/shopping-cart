@@ -1,5 +1,10 @@
-import React, { useReducer } from "react";
-import { HashRouter as Router, Route, NavLink, Switch } from "react-router-dom";
+import React, { useEffect, useReducer } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Switch,
+} from "react-router-dom";
 
 // custom react elements (not components)
 import CartContext, { cartActions } from "./CartContext";
@@ -15,7 +20,7 @@ import CartLink from "./components/CartLink";
 import Nav from "./styled-components/Nav";
 import Main from "./styled-components/Main";
 
-const cartReducer = (state, { type, id, quantity }) => {
+const cartReducer = (state, { type, id, quantity, data }) => {
   if (!state[id]) state[id] = 0;
 
   // Depending on state, I might want to change action type
@@ -42,6 +47,8 @@ const cartReducer = (state, { type, id, quantity }) => {
       // but immediately deleting when typing a number is also bad
       // I might include a different action.type onBlur to delete if 0?
       return { ...state, [id]: quantity };
+    case cartActions.setAll:
+      return data;
     case cartActions.remove:
       const newState = { ...state };
       delete newState[id];
@@ -51,13 +58,25 @@ const cartReducer = (state, { type, id, quantity }) => {
   }
 };
 
-// TODO: add cart contents to localstorage!
-
 function App() {
   const [cartState, cartDispatch] = useReducer(cartReducer, {});
 
-  // TODO: figure out a place to put this... idk how to make NavLink active
-  // work with styled-components yet
+  // * Handle localStorage
+  // Initialize cart from localstorage, if possible
+  useEffect(() => {
+    const cartData = localStorage.getItem("cart");
+    if (cartData) {
+      cartDispatch({ type: cartActions.setAll, data: JSON.parse(cartData) });
+    }
+  }, []);
+
+  // Update localStorage when cartState is updated
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartState));
+  }, [cartState]);
+
+  // TODO: figure out a place to put this...
+  // idk how to make NavLink active work with styled-components yet
   const activeNavStyle = {
     textDecoration: "underline",
     fontWeight: "bold",
@@ -65,7 +84,8 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      {/* this should probably be an environment var or somethin */}
+      <Router basename="shopping-cart">
         <CartContext.Provider value={{ cartState, cartDispatch }}>
           <Nav>
             <ul className="nav">
