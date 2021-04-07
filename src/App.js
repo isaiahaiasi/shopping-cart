@@ -47,6 +47,7 @@ const cartReducer = (state, { type, id, quantity, data }) => {
       // but immediately deleting when typing a number is also bad
       // I might include a different action.type onBlur to delete if 0?
       return { ...state, [id]: quantity };
+    // this is kind of a nightmare, actually
     case cartActions.setAll:
       return data;
     case cartActions.remove:
@@ -117,7 +118,7 @@ function App() {
               <Route path="/shop/:productId">
                 <Product />
               </Route>
-              <Route path="/cart">
+              <Route path="/cart" exact>
                 <Cart />
               </Route>
             </Switch>
