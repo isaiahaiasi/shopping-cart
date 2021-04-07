@@ -42,7 +42,9 @@ export default function Cart() {
         })}
       </ul>
       <div>Total: {formatCurrency(total)}</div>
-      <Button>Proceed to checkout</Button>
+      <Button>
+        <div>Proceed to checkout</div>
+      </Button>
     </div>
   );
 }

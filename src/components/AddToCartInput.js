@@ -37,11 +37,11 @@ export default function AddToCartInput({ id }) {
         <FaTrash />
       </RoundBtn>
       <RoundBtn onClick={handleDecrement}>
-        <span> - </span>
+        <span style={{ fontSize: "1.6em" }}> - </span>
       </RoundBtn>
       <TextInput type="number" value={quantity} onChange={handleInputChange} />
       <RoundBtn onClick={handleIncrement}>
-        <span> + </span>
+        <span style={{ fontSize: "1.6em" }}> + </span>
       </RoundBtn>
     </CartInputGroup>
   );

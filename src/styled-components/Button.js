@@ -2,8 +2,8 @@ import styled from "styled-components";
 import colors from "./colors";
 
 const Button = styled.button`
-  --font-size: 1.2rem;
-  font-size: var(--font-size);
+  --content-scale-factor: 1.15;
+  font-size: 1.2rem;
   border: none;
   border: ${colors.btnBg} 2px solid;
   border-radius: 10px;
@@ -18,7 +18,7 @@ const Button = styled.button`
     background: ${colors.btnBg};
     color: white;
     > * {
-      transform: scale(1.5);
+      transform: scale(var(--content-scale-factor));
     }
   }
 
