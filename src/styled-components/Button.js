@@ -4,11 +4,13 @@ import colors from "./colors";
 const Button = styled.button`
   --content-scale-factor: 1.15;
   font-size: 1.2rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
   border: none;
   border: ${colors.btnBg} 2px solid;
   border-radius: 10px;
   padding: 0.5em 1em;
-  margin: 0.5em;
   font-weight: bold;
   background: ${(props) => (props.primary ? colors.btnBg : "none")};
   transition: 0.2s ease-in-out;
