@@ -6,7 +6,7 @@ export default function Shop() {
   return (
     <div>
       <h1>Shop</h1>
-      <ul>
+      <ul style={{ paddingLeft: 0 }}>
         {Object.entries(storeData).map(([id, product]) => (
           <ProductCard key={id} id={id} product={product} />
         ))}

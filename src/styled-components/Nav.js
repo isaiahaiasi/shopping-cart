@@ -9,6 +9,7 @@ const Nav = styled.nav`
   color: white;
   padding: 0.2rem 0;
   font-size: 1.2rem;
+  z-index: 999;
 
   :after {
     position: absolute;
