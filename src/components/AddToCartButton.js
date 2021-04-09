@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CartContext, { cartActions } from "../CartContext";
 import Button from "../styled-components/Button";
-
+import { RiCheckLine } from "react-icons/ri";
 export default function AddToCartButton({ id }) {
   const { cartState, cartDispatch } = useContext(CartContext);
 
@@ -16,7 +16,9 @@ export default function AddToCartButton({ id }) {
     </Button>
   ) : (
     <Button disabled>
-      <div>Added to cart</div>
+      <div>
+        Added to cart <RiCheckLine />
+      </div>
     </Button>
   );
 }

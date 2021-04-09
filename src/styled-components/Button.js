@@ -34,8 +34,11 @@ const Button = styled.button`
     border: 2px solid gold;
   }
 
-  /* I want to transform:scale contents on hover, so they need transition */
-  > * {
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     transition: 0.2s ease-in-out;
   }
 
