@@ -31,6 +31,8 @@ const cartReducer = (state, { type, id, quantity, data }) => {
   }
 
   switch (handledType) {
+    case cartActions.add:
+      return { ...state, [id]: 1 };
     case cartActions.increment:
       return { ...state, [id]: state[id] + 1 };
     case cartActions.decrement:

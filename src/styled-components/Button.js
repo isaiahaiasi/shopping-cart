@@ -17,11 +17,15 @@ const Button = styled.button`
   overflow: visible;
 
   &:hover {
-    background: ${colors.btnBg};
-    color: white;
-    > * {
-      transform: scale(var(--content-scale-factor));
-    }
+    ${(props) =>
+      !props.disabled &&
+      `
+      background: ${colors.btnBg};
+      > * {
+        color: white;
+        transform: scale(var(--content-scale-factor));
+      }
+    `}
   }
 
   &:focus,
@@ -32,7 +36,7 @@ const Button = styled.button`
 
   /* I want to transform:scale contents on hover, so they need transition */
   > * {
-    transition: 0.1s ease-in-out;
+    transition: 0.2s ease-in-out;
   }
 
   /* in lieu of margin collapsing */

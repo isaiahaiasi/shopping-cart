@@ -2,7 +2,8 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { formatCurrency } from "../utilities";
 import storeData from "../store-data";
-import AddToCartInput from "./AddToCartInput";
+import AddToCartButton from "./AddToCartButton";
+import ProductContainer from "../styled-components/ProductContainer";
 
 export default function Product() {
   const { productId } = useParams();
@@ -21,8 +22,10 @@ export default function Product() {
   }
 
   return (
-    <div>
+    <ProductContainer>
       <Link to="/shop">Back to shop</Link>
+
+      <img src={product.image} alt={product.title} />
 
       <div>
         <h2>{product.title}</h2>
@@ -34,8 +37,8 @@ export default function Product() {
             <li key={cat}>{cat}</li>
           ))}
         </ul>
-        <AddToCartInput id={productId} />
+        <AddToCartButton id={productId} />
       </div>
-    </div>
+    </ProductContainer>
   );
 }
