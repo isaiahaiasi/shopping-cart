@@ -9,14 +9,23 @@ const Card = styled.div`
   margin: 1rem 0;
   border-radius: 1.25rem;
   box-shadow: 0 0 0.5rem rgba(100, 20, 20, 0.3);
-  background-color: #3c614d;
-  background-image: url(${(props) => props.backgroundImage});
-  background-size: 100%;
-  background-position: center;
+
   overflow: hidden;
 
   * {
     margin: 0;
+  }
+
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #3c614d;
+    background-image: url(${(props) => props.backgroundImage});
+    background-size: 100%;
+    background-position: center;
   }
 
   .card-info {

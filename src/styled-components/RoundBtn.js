@@ -12,6 +12,7 @@ const RoundBtn = styled(Button)`
   border-radius: 50%;
   color: ${colors.btnBg};
   font-weight: bold;
+  margin: 0.5rem;
   width: 2rem;
   height: 2rem;
   /* overflow: hidden; */
