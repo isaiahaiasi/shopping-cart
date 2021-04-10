@@ -27,7 +27,11 @@ export default function Product() {
       <ProductContainer>
         <Link to="/shop">Back to shop</Link>
 
-        <img src={product.image} alt={product.title} />
+        <img
+          src={product.images.landscape}
+          alt={product.title}
+          style={{ borderRadius: "8px", boxShadow: "0 2px 5px grey" }}
+        />
 
         <div>
           <h2>{product.title}</h2>

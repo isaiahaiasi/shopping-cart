@@ -1,5 +1,5 @@
 import React from "react";
-import heroImg from "../assets/brydon.jpg";
+import heroImg from "../assets/brydon-hero.jpg";
 import HomeStyled from "../styled-components/HomeStyle";
 export default function Home() {
   return (

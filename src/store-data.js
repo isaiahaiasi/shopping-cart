@@ -1,8 +1,12 @@
-import bigblue from "./assets/bigblue.jpg";
-import carter from "./assets/carter.jpg";
-import phillip from "./assets/phillip.jpg";
-import sam from "./assets/sam.jpg";
-import mitch from "./assets/mitch.jpg";
+import ls_bigBlue from "./assets/products_ls/bigblue.jpg";
+import ls_eugenivy from "./assets/products_ls/eugenivy.jpg";
+import ls_kari from "./assets/products_ls/kari.jpg";
+import ls_logan from "./assets/products_ls/logan.jpg";
+import ls_mitch from "./assets/products_ls/mitch.jpg";
+import ls_nathan from "./assets/products_ls/nathan.jpg";
+import ls_phillip from "./assets/products_ls/phillip.jpg";
+import ls_ranurte from "./assets/products_ls/ranurte.jpg";
+import ls_toa from "./assets/products_ls/toa.jpg";
 
 const data = {
   "9owJZnxf5J": {
@@ -10,34 +14,44 @@ const data = {
     category: ["Adventuring gear"],
     price: 100,
     weight: 2,
-    image: carter,
+    images: {
+      landscape: ls_bigBlue,
+    },
   },
   "5gMwSTWXgS": {
     title: "Battleaxe",
     category: ["Martial weapon", "melee weapon"],
     price: 1000,
     weight: 4,
-    image: bigblue,
+    images: {
+      landscape: ls_eugenivy,
+    },
   },
   "6EKYYaFobP": {
     title: "Drow Poison",
     category: ["Adventuring gear", "Poison"],
     price: 20000,
-    image: phillip,
+    images: {
+      landscape: ls_kari,
+    },
   },
   "9XKcPV2CVl": {
     title: "Hempen Rope (50 ft)",
     category: ["Adventuring gear"],
     price: 100,
     weight: 10,
-    image: sam,
+    images: {
+      landscape: ls_logan,
+    },
   },
   "3Jk6vansY2": {
     title: "Lute",
     category: ["Instrument"],
     price: 3500,
     weight: 2,
-    image: mitch,
+    images: {
+      landscape: ls_mitch,
+    },
   },
 };
 

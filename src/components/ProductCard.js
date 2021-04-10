@@ -9,7 +9,7 @@ import AddToCartButton from "./AddToCartButton";
 
 export default function ProductCard({ id, product }) {
   return (
-    <Card backgroundImage={product.image}>
+    <Card backgroundImage={product.images.landscape}>
       <Link to={`/shop/${id}`} className="background-image" />
       <div className="card-info">
         <Link to={`/shop/${id}`}>
