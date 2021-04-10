@@ -7,8 +7,12 @@ export default function CartLink({ to, activeStyle }) {
   const loc = useLocation();
   const { cartState } = useContext(CartContext);
 
+  const cartLinkStyle = {
+    display: "flex",
+    alignItems: "center",
+  };
   return (
-    <NavLink to={to} activeStyle={activeStyle}>
+    <NavLink to={to} activeStyle={activeStyle} style={cartLinkStyle}>
       {loc.pathname === "/cart" ? (
         <RiShoppingCart2Fill />
       ) : (

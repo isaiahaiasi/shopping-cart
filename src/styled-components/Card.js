@@ -9,11 +9,22 @@ const Card = styled.div`
   margin: 1rem 0;
   border-radius: 1.25rem;
   box-shadow: 0 0 0.5rem rgba(100, 20, 20, 0.3);
+  font-size: 1.5rem;
 
   overflow: hidden;
 
   * {
     margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.75rem;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
   .background-image {

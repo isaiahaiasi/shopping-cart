@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import colors from "./colors";
 import Button from "./Button";
 
 const RoundBtn = styled(Button)`
@@ -10,12 +9,15 @@ const RoundBtn = styled(Button)`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color: ${colors.btnBg};
   font-weight: bold;
   margin: 0.5rem;
   width: 2rem;
   height: 2rem;
-  /* overflow: hidden; */
+  transition: 0.2s ease-in-out;
+
+  > * {
+    transition: 0.2s ease-in-out;
+  }
 `;
 
 export default RoundBtn;

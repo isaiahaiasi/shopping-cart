@@ -3,35 +3,39 @@ import colors from "./colors";
 
 const Button = styled.button`
   --content-scale-factor: 1.15;
+  font-family: "Judson";
   font-size: 1.2rem;
   box-sizing: border-box;
   width: 100%;
   margin: 0;
   border: none;
-  border: ${colors.btnBg} 2px solid;
+  border: ${colors.defaultFill} 2px solid;
   border-radius: 10px;
   padding: 0.5em 1em;
   font-weight: bold;
-  background: ${(props) => (props.primary ? colors.btnBg : "none")};
+  color: white;
+  background: ${(props) =>
+    props.primary ? colors.accent : colors.defaultFill};
   transition: 0.2s ease-in-out;
   overflow: visible;
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     ${(props) =>
       !props.disabled &&
       `
-      background: ${colors.btnBg};
+      outline: none;
+      background: ${colors.accent};
+      border-color: ${colors.accent};
       > * {
-        color: white;
         transform: scale(var(--content-scale-factor));
       }
     `}
   }
 
-  &:focus,
-  &:active {
-    outline: none;
-    border: 2px solid gold;
+  &:disabled {
+    color: ${colors.added};
   }
 
   > div {
