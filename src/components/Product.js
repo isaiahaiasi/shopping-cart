@@ -4,6 +4,7 @@ import { formatCurrency } from "../utilities";
 import storeData from "../store-data";
 import AddToCartButton from "./AddToCartButton";
 import ProductContainer from "../styled-components/ProductContainer";
+import Main from "../styled-components/Main";
 
 export default function Product() {
   const { productId } = useParams();
@@ -22,23 +23,25 @@ export default function Product() {
   }
 
   return (
-    <ProductContainer>
-      <Link to="/shop">Back to shop</Link>
+    <Main>
+      <ProductContainer>
+        <Link to="/shop">Back to shop</Link>
 
-      <img src={product.image} alt={product.title} />
+        <img src={product.image} alt={product.title} />
 
-      <div>
-        <h2>{product.title}</h2>
-        <p>{productId}</p>
-        <p>{formatCurrency(product.price)}</p>
-        {product.weight && <p>{product.weight} lb</p>}
-        <ul>
-          {product.category.map((cat) => (
-            <li key={cat}>{cat}</li>
-          ))}
-        </ul>
-        <AddToCartButton id={productId} />
-      </div>
-    </ProductContainer>
+        <div>
+          <h2>{product.title}</h2>
+          <p>{productId}</p>
+          <p>{formatCurrency(product.price)}</p>
+          {product.weight && <p>{product.weight} lb</p>}
+          <ul>
+            {product.category.map((cat) => (
+              <li key={cat}>{cat}</li>
+            ))}
+          </ul>
+          <AddToCartButton id={productId} />
+        </div>
+      </ProductContainer>
+    </Main>
   );
 }

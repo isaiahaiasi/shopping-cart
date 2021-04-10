@@ -9,7 +9,7 @@ const Card = styled.div`
   margin: 1rem 0;
   border-radius: 1.25rem;
   box-shadow: 0 0 0.5rem rgba(100, 20, 20, 0.3);
-  font-size: 1.5rem;
+  font-size: 2rem;
 
   overflow: hidden;
 
@@ -37,6 +37,7 @@ const Card = styled.div`
     background-image: url(${(props) => props.backgroundImage});
     background-size: 100%;
     background-position: center;
+    overflow: hidden;
   }
 
   .card-info {

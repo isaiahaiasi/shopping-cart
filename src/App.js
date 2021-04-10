@@ -18,7 +18,6 @@ import CartLink from "./components/CartLink";
 
 // styled components
 import Nav from "./styled-components/Nav";
-import Main from "./styled-components/Main";
 
 const cartReducer = (state, { type, id, quantity, data }) => {
   if (!state[id]) state[id] = 0;
@@ -109,22 +108,20 @@ function App() {
               </li>
             </ul>
           </Nav>
-          <Main>
-            <Switch>
-              <Route path="/" exact>
-                <Home />
-              </Route>
-              <Route path="/shop" exact>
-                <Shop />
-              </Route>
-              <Route path="/shop/:productId">
-                <Product />
-              </Route>
-              <Route path="/cart" exact>
-                <Cart />
-              </Route>
-            </Switch>
-          </Main>
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/shop" exact>
+              <Shop />
+            </Route>
+            <Route path="/shop/:productId">
+              <Product />
+            </Route>
+            <Route path="/cart" exact>
+              <Cart />
+            </Route>
+          </Switch>
         </CartContext.Provider>
       </Router>
     </div>

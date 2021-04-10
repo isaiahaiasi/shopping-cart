@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CartContext from "../CartContext";
 import storeData from "../store-data";
 import Button from "../styled-components/Button";
+import Main from "../styled-components/Main";
 import { formatCurrency } from "../utilities";
 import AddToCartInput from "./AddToCartInput";
 
@@ -11,14 +12,14 @@ export default function Cart() {
 
   if (Object.entries(cartState).length === 0) {
     return (
-      <div>
+      <Main>
         <h1>Cart</h1>
         <h2>Hmmm... There doesn't seem to be anything here!</h2>
         <p>
           Head over to the <Link to="/shop">Shop</Link> page to start adding
           items to your cart!
         </p>
-      </div>
+      </Main>
     );
   }
 
@@ -28,7 +29,7 @@ export default function Cart() {
   );
 
   return (
-    <div>
+    <Main>
       <h1>Cart</h1>
       <ul>
         {Object.entries(cartState).map(([id, quantity]) => {
@@ -45,6 +46,6 @@ export default function Cart() {
       <Button>
         <div>Proceed to checkout</div>
       </Button>
-    </div>
+    </Main>
   );
 }
