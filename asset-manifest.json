@@ -1,26 +1,31 @@
 {
   "files": {
     "main.css": "/shopping-cart/static/css/main.3913dd0b.chunk.css",
-    "main.js": "/shopping-cart/static/js/main.d4744f8b.chunk.js",
-    "main.js.map": "/shopping-cart/static/js/main.d4744f8b.chunk.js.map",
+    "main.js": "/shopping-cart/static/js/main.23ebd895.chunk.js",
+    "main.js.map": "/shopping-cart/static/js/main.23ebd895.chunk.js.map",
     "runtime-main.js": "/shopping-cart/static/js/runtime-main.f89a1504.js",
     "runtime-main.js.map": "/shopping-cart/static/js/runtime-main.f89a1504.js.map",
-    "static/js/2.07b901c6.chunk.js": "/shopping-cart/static/js/2.07b901c6.chunk.js",
-    "static/js/2.07b901c6.chunk.js.map": "/shopping-cart/static/js/2.07b901c6.chunk.js.map",
+    "static/js/2.ee780963.chunk.js": "/shopping-cart/static/js/2.ee780963.chunk.js",
+    "static/js/2.ee780963.chunk.js.map": "/shopping-cart/static/js/2.ee780963.chunk.js.map",
     "index.html": "/shopping-cart/index.html",
     "static/css/main.3913dd0b.chunk.css.map": "/shopping-cart/static/css/main.3913dd0b.chunk.css.map",
-    "static/js/2.07b901c6.chunk.js.LICENSE.txt": "/shopping-cart/static/js/2.07b901c6.chunk.js.LICENSE.txt",
-    "static/js/main.d4744f8b.chunk.js.LICENSE.txt": "/shopping-cart/static/js/main.d4744f8b.chunk.js.LICENSE.txt",
+    "static/js/2.ee780963.chunk.js.LICENSE.txt": "/shopping-cart/static/js/2.ee780963.chunk.js.LICENSE.txt",
+    "static/js/main.23ebd895.chunk.js.LICENSE.txt": "/shopping-cart/static/js/main.23ebd895.chunk.js.LICENSE.txt",
     "static/media/bigblue.5c0ebf03.jpg": "/shopping-cart/static/media/bigblue.5c0ebf03.jpg",
-    "static/media/carter.ccc37705.jpg": "/shopping-cart/static/media/carter.ccc37705.jpg",
+    "static/media/brydon-hero.0d1b2525.jpg": "/shopping-cart/static/media/brydon-hero.0d1b2525.jpg",
+    "static/media/eugenivy.97087dc8.jpg": "/shopping-cart/static/media/eugenivy.97087dc8.jpg",
+    "static/media/kari.1cdb6cff.jpg": "/shopping-cart/static/media/kari.1cdb6cff.jpg",
+    "static/media/logan.923a56db.jpg": "/shopping-cart/static/media/logan.923a56db.jpg",
     "static/media/mitch.2c31ae22.jpg": "/shopping-cart/static/media/mitch.2c31ae22.jpg",
+    "static/media/nathan.6045a769.jpg": "/shopping-cart/static/media/nathan.6045a769.jpg",
     "static/media/phillip.61e5fc71.jpg": "/shopping-cart/static/media/phillip.61e5fc71.jpg",
-    "static/media/sam.febc16d5.jpg": "/shopping-cart/static/media/sam.febc16d5.jpg"
+    "static/media/ranurte.4eb26cbf.jpg": "/shopping-cart/static/media/ranurte.4eb26cbf.jpg",
+    "static/media/toa.885efad9.jpg": "/shopping-cart/static/media/toa.885efad9.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.f89a1504.js",
-    "static/js/2.07b901c6.chunk.js",
+    "static/js/2.ee780963.chunk.js",
     "static/css/main.3913dd0b.chunk.css",
-    "static/js/main.d4744f8b.chunk.js"
+    "static/js/main.23ebd895.chunk.js"
   ]
 }
