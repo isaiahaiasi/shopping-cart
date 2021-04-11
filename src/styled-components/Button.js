@@ -34,9 +34,14 @@ const Button = styled.button`
     `}
   }
 
-  &:disabled {
+  ${(props) =>
+    props.added &&
+    `
     color: ${colors.added};
-  }
+    &:hover, &:focus, &:active {
+      background-color: black;
+    }
+  `}
 
   > div {
     display: flex;
