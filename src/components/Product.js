@@ -27,15 +27,11 @@ export default function Product() {
       <ProductContainer>
         <Link to="/shop">Back to shop</Link>
 
-        <img
-          src={product.images.landscape}
-          alt={product.title}
-          style={{ borderRadius: "8px", boxShadow: "0 2px 5px grey" }}
-        />
+        <img src={product.images.landscape} alt={product.title} />
 
         <div>
           <h2>{product.title}</h2>
-          <p>{productId}</p>
+          <p>{product.description}</p>
           <p>{formatCurrency(product.price)}</p>
           {product.weight && <p>{product.weight} lb</p>}
           <ul>

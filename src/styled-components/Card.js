@@ -31,7 +31,7 @@ const Card = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 50%;
     height: 100%;
     background-color: #3c614d;
     background-image: url(${(props) => props.backgroundImage});
