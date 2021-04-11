@@ -5,7 +5,6 @@ import { formatCurrency } from "../utilities";
 import AddToCartButton from "./AddToCartButton";
 
 //! I want the whole card to be a link, EXCEPT the button
-// but stopPropagation isn't working
 
 export default function ProductCard({ id, product }) {
   return (

@@ -35,12 +35,14 @@ const Card = styled.div`
     height: 100%;
     background-color: #3c614d;
     background-image: url(${(props) => props.backgroundImage});
+    background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
     overflow: hidden;
   }
 
   .card-info {
+    box-sizing: border-box;
     color: black;
     display: flex;
     flex-direction: column;
@@ -52,6 +54,24 @@ const Card = styled.div`
     bottom: 0;
     left: 45%;
     padding: 1rem;
+  }
+
+  @media (max-width: 35rem) {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 24rem;
+
+    .background-image {
+      top: 0;
+      width: 100%;
+      background-position: top;
+    }
+    .card-info {
+      left: 0;
+      top: 50%;
+      width: 100%;
+    }
   }
 `;
 
